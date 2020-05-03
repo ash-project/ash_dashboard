@@ -1,9 +1,9 @@
-defmodule Phoenix.LiveDashboard.OSMonLiveTest do
+defmodule AshDashboard.OSMonLiveTest do
   use ExUnit.Case, async: true
 
   import Phoenix.ConnTest
   import Phoenix.LiveViewTest
-  @endpoint Phoenix.LiveDashboardTest.Endpoint
+  @endpoint AshDashboardTest.Endpoint
 
   describe "OS mon page" do
     test "displays section titles" do

@@ -1,0 +1,2 @@
+defmodule AshDashboard do
+end

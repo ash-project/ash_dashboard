@@ -1,9 +1,9 @@
-defmodule Phoenix.LiveDashboard.SocketsLiveTest do
+defmodule AshDashboard.SocketsLiveTest do
   use ExUnit.Case, async: false
 
   import Phoenix.ConnTest
   import Phoenix.LiveViewTest
-  @endpoint Phoenix.LiveDashboardTest.Endpoint
+  @endpoint AshDashboardTest.Endpoint
 
   test "search" do
     %{formatted_address: first_address, port: first_socket_port} = open_socket()
@@ -88,7 +88,7 @@ defmodule Phoenix.LiveDashboard.SocketsLiveTest do
   end
 
   defp socket_info_path(port, limit, sort_by, sort_dir) do
-    "/dashboard/nonode%40nohost/sockets/#{Phoenix.LiveDashboard.ViewHelpers.encode_port(port)}?" <>
+    "/dashboard/nonode%40nohost/sockets/#{AshDashboard.ViewHelpers.encode_port(port)}?" <>
       "limit=#{limit}&sort_by=#{sort_by}&sort_dir=#{sort_dir}"
   end
 

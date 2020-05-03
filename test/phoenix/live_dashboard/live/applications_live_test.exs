@@ -1,9 +1,9 @@
-defmodule Phoenix.LiveDashboard.ApplicationsLiveTest do
+defmodule AshDashboard.ApplicationsLiveTest do
   use ExUnit.Case, async: true
 
   import Phoenix.ConnTest
   import Phoenix.LiveViewTest
-  @endpoint Phoenix.LiveDashboardTest.Endpoint
+  @endpoint AshDashboardTest.Endpoint
 
   test "shows applications with limit" do
     {:ok, _live, rendered} = live(build_conn(), "/dashboard/nonode@nohost/applications")

@@ -1,8 +1,8 @@
-defmodule Phoenix.LiveDashboard.TelemetryListenerTest do
+defmodule AshDashboard.TelemetryListenerTest do
   use ExUnit.Case, async: true
 
   import Telemetry.Metrics
-  alias Phoenix.LiveDashboard.TelemetryListener
+  alias AshDashboard.TelemetryListener
 
   test "forwards the given metrics" do
     time = System.system_time(:second)

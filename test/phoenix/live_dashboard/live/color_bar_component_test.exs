@@ -1,10 +1,10 @@
-defmodule Phoenix.LiveDashboard.ColorBarComponentTest do
+defmodule AshDashboard.ColorBarComponentTest do
   use ExUnit.Case, async: true
 
   import Phoenix.LiveViewTest
 
-  alias Phoenix.LiveDashboard.ColorBarComponent
-  @endpoint Phoenix.LiveDashboardTest.Endpoint
+  alias AshDashboard.ColorBarComponent
+  @endpoint AshDashboardTest.Endpoint
 
   @data [
     {"In use", 4.0, "purple", "unused"}

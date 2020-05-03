@@ -1,5 +1,5 @@
-defmodule Phoenix.LiveDashboard.ColorBarLegendComponent do
-  use Phoenix.LiveDashboard.Web, :live_component
+defmodule AshDashboard.ColorBarLegendComponent do
+  use AshDashboard.Web, :live_component
 
   def mount(socket) do
     {:ok, assign(socket, formatter: &format_percent/1)}

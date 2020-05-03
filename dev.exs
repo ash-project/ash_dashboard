@@ -2,7 +2,7 @@
 Logger.configure(level: :debug)
 
 # Configures the endpoint
-Application.put_env(:phoenix_live_dashboard, DemoWeb.Endpoint,
+Application.put_env(:ash_dashboard, DemoWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "Hu4qQN3iKzTV4fJxhorPQlA/osH9fAMtbtjVS58PFgfw3ja5Z18Q/WSNR9wP4OfW",
   live_view: [signing_salt: "hMegieSe"],
@@ -22,8 +22,8 @@ Application.put_env(:phoenix_live_dashboard, DemoWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"lib/phoenix/live_dashboard/(live|views)/.*(ex)$",
-      ~r"lib/phoenix/live_dashboard/templates/.*(ex)$"
+      ~r"lib/phoenix/ash_dashboard/(live|views)/.*(ex)$",
+      ~r"lib/phoenix/ash_dashboard/templates/.*(ex)$"
     ]
   ]
 )
@@ -92,7 +92,7 @@ end
 
 defmodule DemoWeb.Router do
   use Phoenix.Router
-  import Phoenix.LiveDashboard.Router
+  import AshDashboard.Router
 
   pipeline :browser do
     plug :fetch_session
@@ -103,22 +103,18 @@ defmodule DemoWeb.Router do
     get "/", DemoWeb.PageController, :index
     get "/hello", DemoWeb.PageController, :hello
     get "/hello/:name", DemoWeb.PageController, :hello
-    live_dashboard("/dashboard", metrics: DemoWeb.Telemetry)
+    ash_dashboard("/dashboard", metrics: DemoWeb.Telemetry)
   end
 end
 
 defmodule DemoWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :phoenix_live_dashboard
+  use Phoenix.Endpoint, otp_app: :ash_dashboard
 
   socket "/live", Phoenix.LiveView.Socket
   socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
 
   plug Phoenix.LiveReloader
   plug Phoenix.CodeReloader
-
-  plug Phoenix.LiveDashboard.RequestLogger,
-    param_key: "request_logger",
-    cookie_key: "request_logger"
 
   plug Plug.Session,
     store: :cookie,

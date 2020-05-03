@@ -1,9 +1,9 @@
-defmodule Phoenix.LiveDashboard.BarComponentTest do
+defmodule AshDashboard.BarComponentTest do
   use ExUnit.Case, async: true
   import Phoenix.LiveViewTest
 
-  alias Phoenix.LiveDashboard.BarComponent
-  @endpoint Phoenix.LiveDashboardTest.Endpoint
+  alias AshDashboard.BarComponent
+  @endpoint AshDashboardTest.Endpoint
 
   describe "rendering" do
     test "color bar component" do

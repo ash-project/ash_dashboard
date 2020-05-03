@@ -1,8 +1,8 @@
-defmodule Phoenix.LiveDashboard.LayoutViewTest do
+defmodule AshDashboard.LayoutViewTest do
   use ExUnit.Case, async: true
 
   import Phoenix.ConnTest
-  alias Phoenix.LiveDashboard.LayoutView
+  alias AshDashboard.LayoutView
 
   describe "live_socket_path" do
     test "considers script_name" do

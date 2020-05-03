@@ -1,6 +1,6 @@
 # Phoenix LiveDashboard
 
-[Online Documentation](https://hexdocs.pm/phoenix_live_dashboard).
+[Online Documentation](https://hexdocs.pm/ash_dashboard).
 
 <!-- MDOC !-->
 
@@ -26,24 +26,24 @@ LiveDashboard provides real-time performance monitoring and debugging tools for 
 
 The dashboard also works across nodes. If your nodes are connected via Distributed Erlang, then you can access information from node B while accessing the dashboard on node A.
 
-![screenshot](https://github.com/phoenixframework/phoenix_live_dashboard/raw/master/screenshot.png)
+![screenshot](https://github.com/phoenixframework/ash_dashboard/raw/master/screenshot.png)
 
 ## Installation
 
 To start using LiveDashboard, you will need three steps:
 
-  1. Add the `phoenix_live_dashboard` dependency
+  1. Add the `ash_dashboard` dependency
   2. Configure LiveView
   3. Add dashboard access
 
-### 1. Add the `phoenix_live_dashboard` dependency
+### 1. Add the `ash_dashboard` dependency
 
 Add the following to your `mix.exs` and run `mix deps.get`:
 
 ```elixir
 def deps do
   [
-    {:phoenix_live_dashboard, "~> 0.1"}
+    {:ash_dashboard, "~> 0.1"}
   ]
 end
 ```
@@ -77,14 +77,14 @@ Once installed, update your router's configuration to forward requests to a Live
 ```elixir
 # lib/my_app_web/router.ex
 use MyAppWeb, :router
-import Phoenix.LiveDashboard.Router
+import AshDashboard.Router
 
 ...
 
 if Mix.env() == :dev do
   scope "/" do
     pipe_through :browser
-    live_dashboard "/dashboard"
+    ash_dashboard "/dashboard"
   end
 end
 ```
@@ -99,7 +99,7 @@ If you want to use the LiveDashboard in production, you should put it behind som
 # lib/my_app_web/router.ex
 use MyAppWeb, :router
 import Plug.BasicAuth
-import Phoenix.LiveDashboard.Router
+import AshDashboard.Router
 
 ...
 
@@ -109,7 +109,7 @@ end
 
 scope "/" do
   pipe_through [:browser, :admins_only]
-  live_dashboard "/dashboard"
+  ash_dashboard "/dashboard"
 end
 ```
 

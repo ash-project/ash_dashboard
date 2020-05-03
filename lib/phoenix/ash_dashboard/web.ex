@@ -1,4 +1,4 @@
-defmodule Phoenix.LiveDashboard.Web do
+defmodule AshDashboard.Web do
   @moduledoc false
 
   @doc false
@@ -7,8 +7,8 @@ defmodule Phoenix.LiveDashboard.Web do
       @moduledoc false
 
       use Phoenix.View,
-        namespace: Phoenix.LiveDashboard,
-        root: "lib/phoenix/live_dashboard/templates"
+        namespace: AshDashboard,
+        root: "lib/phoenix/ash_dashboard/templates"
 
       unquote(view_helpers())
     end
@@ -19,8 +19,8 @@ defmodule Phoenix.LiveDashboard.Web do
     quote do
       @moduledoc false
 
-      use Phoenix.LiveView, layout: {Phoenix.LiveDashboard.LayoutView, "live.html"}
-      import Phoenix.LiveDashboard.LiveHelpers
+      use Phoenix.LiveView, layout: {AshDashboard.LayoutView, "live.html"}
+      import AshDashboard.LiveHelpers
 
       unquote(view_helpers())
     end
@@ -32,7 +32,7 @@ defmodule Phoenix.LiveDashboard.Web do
       @moduledoc false
 
       use Phoenix.LiveComponent
-      import Phoenix.LiveDashboard.LiveHelpers
+      import AshDashboard.LiveHelpers
 
       unquote(view_helpers())
     end
@@ -47,7 +47,7 @@ defmodule Phoenix.LiveDashboard.Web do
       import Phoenix.LiveView.Helpers
 
       # Import dashboard built-in functions
-      import Phoenix.LiveDashboard.ViewHelpers
+      import AshDashboard.ViewHelpers
     end
   end
 

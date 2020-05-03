@@ -1,12 +1,12 @@
-defmodule Phoenix.LiveDashboard.RequestLoggerLiveTest do
+defmodule AshDashboard.RequestLoggerLiveTest do
   use ExUnit.Case, async: true
 
   require Logger
   import Phoenix.ConnTest
   import Phoenix.LiveViewTest
-  alias Phoenix.LiveDashboard.RequestLogger
-  alias Phoenix.LiveDashboardTest.PubSub
-  @endpoint Phoenix.LiveDashboardTest.Endpoint
+  alias AshDashboard.RequestLogger
+  alias AshDashboardTest.PubSub
+  @endpoint AshDashboardTest.Endpoint
 
   test "redirects to stream" do
     {:error, {:live_redirect, %{to: "/dashboard/nonode%40nohost/request_logger/" <> _}}} =

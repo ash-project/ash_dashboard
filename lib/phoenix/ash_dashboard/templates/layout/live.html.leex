@@ -1,0 +1,12 @@
+<header class="d-flex">
+  <div class="container d-flex flex-column">
+    <h1>
+      <span class="header-title-part">Ash </span>
+      <span class="header-title-part">Dashboard<span>
+    </h1>
+    <%= live_render @socket, AshDashboard.MenuLive, id: "menu", session: %{"menu" => @menu} %>
+  </div>
+</header>
+<section id="main" role="main" class="container">
+  <%= @inner_content %>
+</section>

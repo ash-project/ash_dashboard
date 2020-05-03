@@ -1,4 +1,4 @@
-defmodule Phoenix.LiveDashboard.ViewHelpers do
+defmodule AshDashboard.ViewHelpers do
   # General helpers for all views (rendering related).
   @moduledoc false
 
@@ -62,19 +62,19 @@ defmodule Phoenix.LiveDashboard.ViewHelpers do
   @doc """
   Formats any value.
   """
-  def format_value(port, live_dashboard_path) when is_port(port) do
-    live_redirect(inspect(port), to: live_dashboard_path.(:ports, node(port), [encode_port(port)]))
+  def format_value(port, ash_dashboard_path) when is_port(port) do
+    live_redirect(inspect(port), to: ash_dashboard_path.(:ports, node(port), [encode_port(port)]))
   end
 
-  def format_value(pid, live_dashboard_path) when is_pid(pid) do
-    live_redirect(inspect(pid), to: live_dashboard_path.(:processes, node(pid), [encode_pid(pid)]))
+  def format_value(pid, ash_dashboard_path) when is_pid(pid) do
+    live_redirect(inspect(pid), to: ash_dashboard_path.(:processes, node(pid), [encode_pid(pid)]))
   end
 
-  def format_value([_ | _] = list, live_dashboard_path) do
+  def format_value([_ | _] = list, ash_dashboard_path) do
     {entries, left_over} = Enum.split(list, @format_limit)
 
     entries
-    |> Enum.map(&format_value(&1, live_dashboard_path))
+    |> Enum.map(&format_value(&1, ash_dashboard_path))
     |> Kernel.++(if left_over == [], do: [], else: ["..."])
     |> Enum.intersperse({:safe, "<br />"})
   end
@@ -183,6 +183,6 @@ defmodule Phoenix.LiveDashboard.ViewHelpers do
     path = Keyword.fetch!(opts, :return_to)
     title = Keyword.fetch!(opts, :title)
     modal_opts = [id: :modal, return_to: path, component: component, opts: opts, title: title]
-    live_component(socket, Phoenix.LiveDashboard.ModalComponent, modal_opts)
+    live_component(socket, AshDashboard.ModalComponent, modal_opts)
   end
 end

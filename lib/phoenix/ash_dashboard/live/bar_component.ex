@@ -1,5 +1,5 @@
-defmodule Phoenix.LiveDashboard.BarComponent do
-  use Phoenix.LiveDashboard.Web, :live_component
+defmodule AshDashboard.BarComponent do
+  use AshDashboard.Web, :live_component
 
   def mount(socket) do
     {:ok, assign(socket, class: "", color: "blue")}

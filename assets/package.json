@@ -1,9 +1,9 @@
 {
-  "name": "phoenix_live_dashboard",
+  "name": "ash_dashboard",
   "version": "0.1.0",
   "description": "The Phoenix LiveDashboard JavaScript client.",
   "license": "MIT",
-  "main": "./assets/js/phoenix_live_dashboard.js",
+  "main": "./assets/js/ash_dashboard.js",
   "repository": {},
   "scripts": {
     "build": "webpack --mode production",

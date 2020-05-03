@@ -1,9 +1,9 @@
-defmodule Phoenix.LiveDashboard.HomeLiveTest do
+defmodule AshDashboard.HomeLiveTest do
   use ExUnit.Case, async: true
 
   import Phoenix.ConnTest
   import Phoenix.LiveViewTest
-  @endpoint Phoenix.LiveDashboardTest.Endpoint
+  @endpoint AshDashboardTest.Endpoint
 
   test "redirects when host is missing" do
     conn = get(build_conn(), "/dashboard")
@@ -18,7 +18,7 @@ defmodule Phoenix.LiveDashboard.HomeLiveTest do
 
     assert rendered =~
              ~s|<h6 class="banner-card-title">Dashboard</h6><div class="banner-card-value">| <>
-               ~s|#{Application.spec(:phoenix_live_dashboard, :vsn)}</div>|
+               ~s|#{Application.spec(:ash_dashboard, :vsn)}</div>|
 
     assert rendered =~
              ~s|<h6 class=\"banner-card-title\">Uptime</h6><div class=\"banner-card-value\">0m</div>|

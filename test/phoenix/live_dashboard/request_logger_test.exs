@@ -1,10 +1,10 @@
-defmodule Phoenix.LiveDashboard.RequestLoggerTest do
+defmodule AshDashboard.RequestLoggerTest do
   use ExUnit.Case, async: true
 
   use Plug.Test
-  alias Phoenix.LiveDashboard.RequestLogger
+  alias AshDashboard.RequestLogger
 
-  @endpoint Phoenix.LiveDashboardTest.Endpoint
+  @endpoint AshDashboardTest.Endpoint
 
   def conn(url \\ "/") do
     conn(:get, url)
@@ -39,7 +39,7 @@ defmodule Phoenix.LiveDashboard.RequestLoggerTest do
     |> request_logger(param_key: "param_key")
 
     assert Logger.metadata()[:logger_pubsub_backend] ==
-             {Phoenix.LiveDashboardTest.PubSub, "phx_dashboard:request_logger:rstream"}
+             {AshDashboardTest.PubSub, "phx_dashboard:request_logger:rstream"}
   end
 
   test "sets logger metadata for matching cookie" do
@@ -60,6 +60,6 @@ defmodule Phoenix.LiveDashboard.RequestLoggerTest do
     |> request_logger(cookie_key: "cookie_key")
 
     assert Logger.metadata()[:logger_pubsub_backend] ==
-             {Phoenix.LiveDashboardTest.PubSub, "phx_dashboard:request_logger:cstream"}
+             {AshDashboardTest.PubSub, "phx_dashboard:request_logger:cstream"}
   end
 end

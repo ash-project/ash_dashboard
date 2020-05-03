@@ -1,9 +1,9 @@
-defmodule Phoenix.LiveDashboard.PortsLiveTest do
+defmodule AshDashboard.PortsLiveTest do
   use ExUnit.Case, async: true
 
   import Phoenix.ConnTest
   import Phoenix.LiveViewTest
-  @endpoint Phoenix.LiveDashboardTest.Endpoint
+  @endpoint AshDashboardTest.Endpoint
 
   test "shows ports with limit" do
     {:ok, live, rendered} = live(build_conn(), "/dashboard/nonode@nohost/ports")
@@ -90,7 +90,7 @@ defmodule Phoenix.LiveDashboard.PortsLiveTest do
   end
 
   defp port_info_path(port, limit, sort_by, sort_dir) do
-    "/dashboard/nonode%40nohost/ports/#{Phoenix.LiveDashboard.ViewHelpers.encode_port(port)}?" <>
+    "/dashboard/nonode%40nohost/ports/#{AshDashboard.ViewHelpers.encode_port(port)}?" <>
       "limit=#{limit}&sort_by=#{sort_by}&sort_dir=#{sort_dir}"
   end
 

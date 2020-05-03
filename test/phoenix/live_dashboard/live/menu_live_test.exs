@@ -1,10 +1,10 @@
-defmodule Phoenix.LiveDashboard.MenuLiveTest do
+defmodule AshDashboard.MenuLiveTest do
   use ExUnit.Case, async: true
 
   import Phoenix.ConnTest
   import Phoenix.LiveViewTest
-  alias Phoenix.LiveDashboard.MenuLive
-  @endpoint Phoenix.LiveDashboardTest.Endpoint
+  alias AshDashboard.MenuLive
+  @endpoint AshDashboardTest.Endpoint
 
   defp menu_live(menu) do
     menu =
@@ -18,7 +18,7 @@ defmodule Phoenix.LiveDashboard.MenuLiveTest do
 
     live_isolated(build_conn(), MenuLive,
       session: %{"menu" => menu},
-      router: Phoenix.LiveDashboardTest.Router
+      router: AshDashboardTest.Router
     )
   end
 

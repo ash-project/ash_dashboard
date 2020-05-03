@@ -1,5 +1,5 @@
-defmodule Phoenix.LiveDashboard.ChartComponent do
-  use Phoenix.LiveDashboard.Web, :live_component
+defmodule AshDashboard.ChartComponent do
+  use AshDashboard.Web, :live_component
 
   @impl true
   def mount(socket) do

@@ -1,7 +1,7 @@
-defmodule Phoenix.LiveDashboard.LoggerPubSubBackendTest do
+defmodule AshDashboard.LoggerPubSubBackendTest do
   use ExUnit.Case, async: true
 
-  alias Phoenix.LiveDashboardTest.PubSub
+  alias AshDashboardTest.PubSub
   require Logger
 
   @tag :capture_log

@@ -1,22 +1,22 @@
-defmodule Phoenix.LiveDashboard.RouterTest do
+defmodule AshDashboard.RouterTest do
   use ExUnit.Case, async: true
 
-  alias Phoenix.LiveDashboard.Router
+  alias AshDashboard.Router
 
   test "sets options" do
     assert Router.__options__([]) == [
-             session: {Phoenix.LiveDashboard.Router, :__session__, [nil]},
-             layout: {Phoenix.LiveDashboard.LayoutView, :dash},
-             as: :live_dashboard
+             session: {AshDashboard.Router, :__session__, [nil]},
+             layout: {AshDashboard.LayoutView, :dash},
+             as: :ash_dashboard
            ]
   end
 
   test "normalizes metrics option" do
     assert Router.__options__(metrics: Foo)[:session] ==
-             {Phoenix.LiveDashboard.Router, :__session__, [{Foo, :metrics}]}
+             {AshDashboard.Router, :__session__, [{Foo, :metrics}]}
 
     assert Router.__options__(metrics: {Foo, :bar})[:session] ==
-             {Phoenix.LiveDashboard.Router, :__session__, [{Foo, :bar}]}
+             {AshDashboard.Router, :__session__, [{Foo, :bar}]}
 
     assert_raise ArgumentError, fn ->
       Router.__options__(metrics: [])

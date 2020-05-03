@@ -1,5 +1,5 @@
-defmodule Phoenix.LiveDashboard.ModalComponent do
-  use Phoenix.LiveDashboard.Web, :live_component
+defmodule AshDashboard.ModalComponent do
+  use AshDashboard.Web, :live_component
 
   def render(assigns) do
     ~L"""

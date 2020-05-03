@@ -1,7 +1,7 @@
-defmodule Phoenix.LiveDashboard.ViewHelpersTest do
+defmodule AshDashboard.ViewHelpersTest do
   use ExUnit.Case, async: true
 
-  import Phoenix.LiveDashboard.ViewHelpers
+  import AshDashboard.ViewHelpers
 
   test "encode/decode pid" do
     assert decode_pid(encode_pid(self())) == self()

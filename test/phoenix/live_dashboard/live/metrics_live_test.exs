@@ -1,9 +1,9 @@
-defmodule Phoenix.LiveDashboard.MetricsLiveTest do
+defmodule AshDashboard.MetricsLiveTest do
   use ExUnit.Case, async: true
 
   import Phoenix.ConnTest
   import Phoenix.LiveViewTest
-  @endpoint Phoenix.LiveDashboardTest.Endpoint
+  @endpoint AshDashboardTest.Endpoint
 
   test "redirects to the first metrics group if no metric group is provided" do
     {:error, {:live_redirect, %{to: "/dashboard/nonode%40nohost/metrics/ecto"}}} =

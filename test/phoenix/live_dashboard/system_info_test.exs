@@ -1,6 +1,6 @@
-defmodule Phoenix.LiveDashboard.SystemInfoTest do
+defmodule AshDashboard.SystemInfoTest do
   use ExUnit.Case, async: true
-  alias Phoenix.LiveDashboard.SystemInfo
+  alias AshDashboard.SystemInfo
 
   describe "processes" do
     test "all with limit" do

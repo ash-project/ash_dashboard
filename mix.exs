@@ -1,11 +1,11 @@
-defmodule Phoenix.LiveDashboard.MixProject do
+defmodule AshDashboard.MixProject do
   use Mix.Project
 
   @version "0.2.1"
 
   def project do
     [
-      app: :phoenix_live_dashboard,
+      app: :ash_dashboard,
       version: @version,
       elixir: "~> 1.7",
       compilers: [:phoenix] ++ Mix.compilers(),
@@ -27,7 +27,7 @@ defmodule Phoenix.LiveDashboard.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      mod: {Phoenix.LiveDashboard.Application, []},
+      mod: {AshDashboard.Application, []},
       extra_applications: [:logger]
     ]
   end
@@ -64,12 +64,12 @@ defmodule Phoenix.LiveDashboard.MixProject do
 
   defp docs do
     [
-      main: "Phoenix.LiveDashboard",
+      main: "AshDashboard",
       source_ref: "v#{@version}",
-      source_url: "https://github.com/phoenixframework/phoenix_live_dashboard",
+      source_url: "https://github.com/phoenixframework/ash_dashboard",
       extra_section: "GUIDES",
       extras: extras(),
-      nest_modules_by_prefix: [Phoenix.LiveDashboard]
+      nest_modules_by_prefix: [AshDashboard]
     ]
   end
 
@@ -85,7 +85,7 @@ defmodule Phoenix.LiveDashboard.MixProject do
     [
       maintainers: ["Michael Crumm", "Chris McCord", "José Valim"],
       licenses: ["MIT"],
-      links: %{github: "https://github.com/phoenixframework/phoenix_live_dashboard"},
+      links: %{github: "https://github.com/phoenixframework/ash_dashboard"},
       files: ~w(lib priv CHANGELOG.md LICENSE.md mix.exs README.md)
     ]
   end

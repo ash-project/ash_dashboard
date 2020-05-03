@@ -1,11 +1,11 @@
-defmodule Phoenix.LiveDashboard.ChartComponentTest do
+defmodule AshDashboard.ChartComponentTest do
   use ExUnit.Case, async: true
 
   import Phoenix.LiveViewTest
   import Telemetry.Metrics
 
-  alias Phoenix.LiveDashboard.ChartComponent
-  @endpoint Phoenix.LiveDashboardTest.Endpoint
+  alias AshDashboard.ChartComponent
+  @endpoint AshDashboardTest.Endpoint
 
   defp render_chart(opts) do
     render_component(ChartComponent, [id: 123] ++ opts)

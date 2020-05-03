@@ -1,10 +1,10 @@
-defmodule Phoenix.LiveDashboard.TableHelpers do
+defmodule AshDashboard.TableHelpers do
   # Helpers for pages that need to render tables
   @moduledoc false
 
   import Phoenix.LiveView
   import Phoenix.LiveView.Helpers
-  import Phoenix.LiveDashboard.LiveHelpers
+  import AshDashboard.LiveHelpers
 
   @limit ~w(50 100 500 1000 5000)
   @sort_dir ~w(desc asc)
@@ -32,14 +32,14 @@ defmodule Phoenix.LiveDashboard.TableHelpers do
 
         link_name
         |> sort_link_body(sort_dir)
-        |> live_patch(to: live_dashboard_path(socket, live_action, menu.node, [], params))
+        |> live_patch(to: ash_dashboard_path(socket, live_action, [], params))
 
       %{} ->
         params = %{params | sort_dir: :desc, sort_by: sort_by}
 
         link_name
         |> sort_link_body()
-        |> live_patch(to: live_dashboard_path(socket, live_action, menu.node, [], params))
+        |> live_patch(to: ash_dashboard_path(socket, live_action, [], params))
     end
   end
 

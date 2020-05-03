@@ -1,9 +1,9 @@
-defmodule Phoenix.LiveDashboard.EtsLiveTest do
+defmodule AshDashboard.EtsLiveTest do
   use ExUnit.Case, async: true
 
   import Phoenix.ConnTest
   import Phoenix.LiveViewTest
-  @endpoint Phoenix.LiveDashboardTest.Endpoint
+  @endpoint AshDashboardTest.Endpoint
 
   test "search" do
     :ets.new(Bar, [:bag, :protected])
@@ -84,7 +84,7 @@ defmodule Phoenix.LiveDashboard.EtsLiveTest do
   end
 
   defp ets_info_path(ref, limit, sort_by, sort_dir) do
-    "/dashboard/nonode%40nohost/ets/#{Phoenix.LiveDashboard.ViewHelpers.encode_reference(ref)}?" <>
+    "/dashboard/nonode%40nohost/ets/#{AshDashboard.ViewHelpers.encode_reference(ref)}?" <>
       "limit=#{limit}&sort_by=#{sort_by}&sort_dir=#{sort_dir}"
   end
 
