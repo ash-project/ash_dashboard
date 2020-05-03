@@ -13,6 +13,7 @@ defmodule AshDashboard.MenuLive do
     ~L"""
     <nav id="menu-bar">
       <%= maybe_active_live_redirect @socket, @menu, "Home", :home %>
+      <%= maybe_active_live_redirect @socket, @menu, "Resources", :resources %>
     </nav>
     """
   end

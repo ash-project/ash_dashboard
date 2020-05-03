@@ -10,6 +10,7 @@ defmodule AshDashboard.Router do
 
         opts = AshDashboard.Router.__options__(opts)
         live "/", AshDashboard.HomeLive, :home, opts
+        live "/resources", AshDashboard.ResourcesLive, :resources, opts
       end
     end
   end
@@ -17,14 +18,14 @@ defmodule AshDashboard.Router do
   @doc false
   def __options__(options) do
     [
-      session: {__MODULE__, :__session__, []},
+      session: {__MODULE__, :__session__, [options[:apis]]},
       layout: {AshDashboard.LayoutView, :dash},
       as: :ash_dashboard
     ]
   end
 
   @doc false
-  def __session__(conn) do
-    %{}
+  def __session__(conn, apis) do
+    %{"apis" => apis}
   end
 end
