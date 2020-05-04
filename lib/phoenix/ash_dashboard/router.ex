@@ -11,7 +11,7 @@ defmodule AshDashboard.Router do
         opts = AshDashboard.Router.__options__(opts)
         live "/", AshDashboard.HomeLive, :home, opts
         live "/resources", AshDashboard.ResourcesLive, :resources, opts
-        live "/resources/:id", AshDashboard.ResourcesLive, :resource, opts
+        live "/resources/:id", AshDashboard.ResourceLive, :resource, opts
       end
     end
   end
