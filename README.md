@@ -91,6 +91,13 @@ end
 
 This is all. Run `mix phx.server` and access the "/dashboard" to configure the necessary modules.
 
+### Recompile static assets
+If you make changes to .css or .js files run this command to recompile the public assets
+```
+cd /assets
+npm run build
+```
+
 ### Extra: Add dashboard access on all environments (including production)
 
 If you want to use the LiveDashboard in production, you should put it behind some authentication and allow only admins to access it. If your application does not have an admins-only section yet, you can use `Plug.BasicAuth` to set up some basic authentication as long as you are also using SSL (which you should anyway):

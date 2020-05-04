@@ -36,6 +36,7 @@ defmodule AshDashboard.DataLive do
   def render(assigns) do
     ~L"""
       Data page
+      <div class="code">HI THERE</div>
       <%= for resource <- @resources do %>
         <%= Ash.name(resource) %>
       <% end %>
