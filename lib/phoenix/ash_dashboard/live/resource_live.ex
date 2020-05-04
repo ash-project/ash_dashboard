@@ -24,6 +24,7 @@ defmodule AshDashboard.ResourceLive do
       |> Ash.resources()
       |> IO.inspect()
       |> Enum.filter(&String.contains?(Ash.name(&1), socket.assigns.params["id"]))
+      |> List.first()
 
     assign(socket, resource: resource)
   end
@@ -39,6 +40,83 @@ defmodule AshDashboard.ResourceLive do
   def render(assigns) do
     ~L"""
       single resource 1
+      @resource
+      <%= Ash.name(@resource) %>
+      <%= live_redirect("Back", to: ash_dashboard_path(@socket, :resources), class: "menu-item") %>
+
+
+
+      <%= f = form_for @resource, "#", [phx_change: :validate, phx_submit: :save, class: "resource"] %>
+
+      <section class="info">
+        <h5>Info</h5>
+        <div class="group">
+          <%= label f, :name %>
+          <input value="<%= @resource.name() %>">
+        </div>
+
+        <div class="group">
+          <%= label f, :type %>
+          <input value="<%= @resource.type() %>">
+        </div>
+
+        <div class="group">
+          <%= label f, :max_page_size %>
+          <input value="<%= @resource.max_page_size() %>" type="number">
+        </div>
+
+        <div class="group">
+          <%= label f, :default_page_size %>
+          <input value="<%= @resource.default_page_size() %>" type="number">
+        </div>
+
+        <div class="group">
+          <%= label f, :primary_key %>
+            <input value="<%= List.first(@resource.primary_key()) |> Atom.to_string() %>">
+          </div>
+      </section>
+
+      <section class="attributes">
+        <h5>Attributes</h5>
+        <%= for attribute <- @resource.attributes do %>
+          <div class="group">
+            <%= label f, attribute.name %>
+            <input>
+          </div>
+        <% end %>
+      </section>
+
+      <section class="actions">
+        <h5>Actions</h5>
+        <%= for action <- @resource.actions do %>
+          <div class="group">
+            <%= label f, action.name %>
+            <input>
+          </div>
+          <div class="group">
+            <%= label f, action.type %>
+            <input>
+          </div>
+
+          <%= if action.type == :read do %>
+            <div class="group">
+              <%= label f, action.paginate? %>
+              <input type="checkbox">
+            </div>
+          <% end %>
+    
+          <div class="group">
+            <%= label f, action.primary? %>
+            <input type="checkbox">
+          </div>
+
+          <%= for rule <- action.rules do %>
+            RULE!
+          <% end %>
+        <% end %>
+      </section>
+    </form>
+
     """
   end
 end
