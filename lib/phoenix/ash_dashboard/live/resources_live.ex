@@ -111,13 +111,15 @@ defmodule AshDashboard.ResourcesLive do
 
   @impl true
   def handle_event("validate", _, socket) do
-    IO.inspect('validate event')  
     {:noreply, socket}
+  end
+
+  def handle_event("show_info", %{"name" => name}, socket) do
+    {:noreply, push_redirect(socket, to: ash_dashboard_path(socket, :resource, [], name))}
   end
 
   @impl true
   def handle_event("save", _, _csrf_token, socket) do
-    IO.inspect('validate event')  
     {:noreply, socket}
   end
 
@@ -136,43 +138,3 @@ defmodule AshDashboard.ResourcesLive do
     ash_dashboard_path(socket, :resources, [], params)
   end
 end
-
-# <h2><%= @title %></h2>
-
-# <%= f = form_for @changeset, "#",
-#   id: "resource-form",
-#   phx_target: @myself,
-#   phx_change: "validate",
-#   phx_submit: "save" %>
-
-#   <%= label f, :name %>
-#   <%= text_input f, :name %>
-#   <%= error_tag f, :name %>
-
-#   <%= label f, :type %>
-#   <%= text_input f, :type %>
-#   <%= error_tag f, :type %>
-
-#   <%= label f, :max_page_size %>
-#   <%= number_input f, :max_page_size %>
-#   <%= error_tag f, :max_page_size %>
-
-#   <%= label f, :default_page_size %>
-#   <%= number_input f, :default_page_size %>
-#   <%= error_tag f, :default_page_size %>
-
-#   <%= label f, :primary_key %>
-#   <%= checkbox f, :primary_key %>
-#   <%= error_tag f, :primary_key %>
-
-#   <h1>Attributes</h1>
-
-#   <%= inputs_for f, :attributes, fn i -> %>
-#     <div class="form-group">
-#       <%= label i, :name, "Bar ##{i.index + 1}", class: "control-label" %>
-#       <%= text_input i, :name, class: "form-control" %>
-#     </div>
-#   <% end %>
-
-#   <%= submit "Save", phx_disable_with: "Saving..." %>
-# </form>

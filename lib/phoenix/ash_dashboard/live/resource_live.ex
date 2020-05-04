@@ -44,8 +44,7 @@ defmodule AshDashboard.ResourceLive do
       <%= Ash.name(@resource) %>
       <%= live_redirect("Back", to: ash_dashboard_path(@socket, :resources), class: "menu-item") %>
 
-
-
+      
       <%= f = form_for @resource, "#", [phx_change: :validate, phx_submit: :save, class: "resource"] %>
 
       <section class="info">
