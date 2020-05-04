@@ -12,6 +12,10 @@ defmodule AshDashboard.Router do
         live "/", AshDashboard.HomeLive, :home, opts
         live "/resources", AshDashboard.ResourcesLive, :resources, opts
         live "/resources/:id", AshDashboard.ResourceLive, :resource, opts
+        live "/data/", AshDashboard.DataLive, :data, opts
+        live "/requests/", AshDashboard.RequestsLive, :requests, opts
+        live "/admin/", AshDashboard.AdminLive, :admin, opts
+        live "/docs/", AshDashboard.DocsLive, :docs, opts
       end
     end
   end
