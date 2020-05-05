@@ -54,57 +54,57 @@ defmodule AshDashboard.ResourcesLive do
   def render(assigns) do
     ~L"""
     <div class="tabular-page">
-    <h5 class="card-title">Resources</h5>
-    <div class="tabular-search">
-    <form phx-change="search" phx-submit="search" class="form-inline">
+      <h5 class="card-title">Resources</h5>
+      <div class="tabular-search">
+      <form phx-change="search" phx-submit="search" class="form-inline">
+        <div class="form-row align-items-center">
+          <div class="col-auto">
+            <input type="search" name="search" class="form-control form-control-sm" value="<%= @params.search %>" placeholder="Search by name" phx-debounce="300">
+          </div>
+        </div>
+      </form>
+      </div>
+      <form phx-change="select_limit" class="form-inline">
       <div class="form-row align-items-center">
+        <div class="col-auto">Showing at most</div>
         <div class="col-auto">
-          <input type="search" name="search" class="form-control form-control-sm" value="<%= @params.search %>" placeholder="Search by name" phx-debounce="300">
+          <div class="input-group input-group-sm">
+            <select name="limit" class="custom-select" id="limit-select">
+              <%= options_for_select(limit_options(), @params.limit) %>
+            </select>
+          </div>
+        </div>
+        <div class="col-auto">
+          resources out of <%= @total %>
         </div>
       </div>
-    </form>
-    </div>
-    <form phx-change="select_limit" class="form-inline">
-    <div class="form-row align-items-center">
-      <div class="col-auto">Showing at most</div>
-      <div class="col-auto">
-        <div class="input-group input-group-sm">
-          <select name="limit" class="custom-select" id="limit-select">
-            <%= options_for_select(limit_options(), @params.limit) %>
-          </select>
-        </div>
-      </div>
-      <div class="col-auto">
-        resources out of <%= @total %>
-      </div>
-    </div>
-    </form>
-    <div class="card tabular-card mb-4 mt-4">
-    <div class="card-body p-0">
-      <div class="dash-table-wrapper">
-        <table class="table table-hover mt-0 dash-table clickable-rows">
-          <thead>
-            <tr>
-              <th class="pl-4">
-                <%= sort_link(@socket, @live_action, @menu, @params, :name, "Name") %>
-              </th>
-              <th>
-                <%= sort_link(@socket, @live_action, @menu, @params, :type, "Type") %>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <%= for resource <- @resources do %>
-              <tr phx-click="show_info" phx-value-name="<%= Ash.name(resource) %>" phx-page-loading>
-                <td class="tabular-column-name pl-4"><%= Ash.name(resource) %></td>
-                <td class="text-right"><%= Ash.type(resource) %></td>
+      </form>
+      <div class="card tabular-card mb-4 mt-4">
+      <div class="card-body p-0">
+        <div class="dash-table-wrapper">
+          <table class="table table-hover mt-0 dash-table clickable-rows">
+            <thead>
+              <tr>
+                <th class="pl-4">
+                  <%= sort_link(@socket, @live_action, @menu, @params, :name, "Name") %>
+                </th>
+                <th>
+                  <%= sort_link(@socket, @live_action, @menu, @params, :type, "Type") %>
+                </th>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              <%= for resource <- @resources do %>
+                <tr phx-click="show_info" phx-value-name="<%= Ash.name(resource) %>" phx-page-loading>
+                  <td class="tabular-column-name pl-4"><%= Ash.name(resource) %></td>
+                  <td class="text-right"><%= Ash.type(resource) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-    </div>
+      </div>
     </div>
     """
   end

@@ -40,9 +40,12 @@ defmodule AshDashboard.ResourceLive do
   def render(assigns) do
     ~L"""
       <h2><%= Ash.name(@resource) %> Resource</h2>
-      <%= live_redirect("Back", to: ash_dashboard_path(@socket, :resources), class: "menu-item") %>
-
       <%= f = form_for @resource, "#", [phx_change: :validate, phx_submit: :save, class: "resource"] %>
+        <div class="form-row">
+          <div class="form-group col-sm-12">
+            <div class="form-section-heading">Information</div>
+          </div>
+        </div>
         <div class="form-row">
           <div class="form-group col-sm-4">
             <label for="inputName4">Name</label>
@@ -71,40 +74,45 @@ defmodule AshDashboard.ResourceLive do
           </div>
         </div>        
         <div class="form-row">
-          <div class="form-group col-sm-3">
+          <div class="form-group col-sm-12">
+            <div class="form-section-heading">Attributes</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-sm-2">
             <label for="inputName4">Name</label>
           </div>
-          <div class="form-group col-sm-2">
+          <div class="form-group col-sm-1">
           <label for="inputType4">Type</label>
           </div>
           <div class="form-group col-sm-1">
             <label for="inputName4">Allow Nil?</label>
           </div>
           <div class="form-group col-sm-1">
-            <label for="inputName4">2</label>
+            <label for="inputName4">Generated?</label>
           </div>
           <div class="form-group col-sm-1">
-            <label for="inputName4">3</label>
+            <label for="inputName4">Primary Key?</label>
           </div>
           <div class="form-group col-sm-1">
-            <label for="inputName4">4</label>
+            <label for="inputName4">Writable?</label>
           </div>
           <div class="form-group col-sm-1">
-            <label for="inputName4">5</label>
+            <label for="inputName4">default</label>
           </div>
-          <div class="form-group col-sm-1">
-            <label for="inputName4">6</label>
+          <div class="form-group col-sm-2">
+            <label for="inputName4">Update Default</label>
           </div>
-          <div class="form-group col-sm-1">
-            <label for="inputName4">7</label>
+          <div class="form-group col-sm-2">
+            <label for="inputName4">Write Rules</label>
           </div>
         </div>
         <%= for attribute <- @resource.attributes do %>
           <div class="form-row">
-            <div class="form-group col-sm-3">
+            <div class="form-group col-sm-2">
               <input type="text" class="form-control" id="inputName4" placeholder="Name" value="<%= attribute.name() %>">
             </div>
-            <div class="form-group col-sm-2">
+            <div class="form-group col-sm-1">
               <select name="node" class="custom-select" id="node-select">
                 <option value="nonode@nohost" selected="">String</option>
                 <option value="nonode@nohost" selected="">Integer</option>
@@ -113,29 +121,37 @@ defmodule AshDashboard.ResourceLive do
               </select>
             </div>
             <div class="form-group col-sm-1">
-              <input type="checkbox" id="gridCheck">
+              <input type="checkbox" id="gridCheck" checked=<%= attribute.allow_nil?() %>>
             </div>
             <div class="form-group col-sm-1">
-              <input type="checkbox" id="gridCheck">
+              <input type="checkbox" id="gridCheck" checked=<%= attribute.generated?() %>>
             </div>
             <div class="form-group col-sm-1">
-              <input type="checkbox" id="gridCheck">
+              <input type="checkbox" id="gridCheck" checked=<%= attribute.primary_key?() %>>
             </div>
             <div class="form-group col-sm-1">
-              <input type="checkbox" id="gridCheck">
+              <input type="checkbox" id="gridCheck" checked=<%= attribute.writable?() %>>
             </div>
             <div class="form-group col-sm-1">
-              <input type="checkbox" id="gridCheck">
+              <input type="text" class="form-control" id="inputName4" placeholder="Name" value="NOT WORKING">
             </div>
-            <div class="form-group col-sm-1">
-              <input type="checkbox" id="gridCheck">
+            <div class="form-group col-sm-2">
+              <input type="text" class="form-control" id="inputName4" placeholder="Name" value="NOT HTML SAFE">
             </div>
-            <div class="form-group col-sm-1">
-              <input type="checkbox" id="gridCheck">
+            <div class="form-group col-sm-2">
+              <input type="text" class="form-control" id="inputName4" placeholder="Name" value="<%= attribute.write_rules() %>">
             </div>
           </div>
         <% end %>
       </form>
+      <div class="form-row">
+        <div class="form-group col-sm-11">
+          <%= live_redirect("Back", to: ash_dashboard_path(@socket, :resources), class: "menu-item") %>
+        </div>
+        <div class="form-group col-sm-1">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
     """
   end
 

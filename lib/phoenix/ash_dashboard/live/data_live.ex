@@ -36,10 +36,30 @@ defmodule AshDashboard.DataLive do
   def render(assigns) do
     ~L"""
       Data page
+
       <div class="code">HI THERE</div>
       <%= for resource <- @resources do %>
         <%= Ash.name(resource) %>
       <% end %>
+
+      <div class="row">
+        <div class="container">
+          <ul class="nav nav-tabs mb-4 charts-nav">
+            <li class="nav-item">
+              Data 1
+            </li>
+            <li class="nav-item">
+              Data 2
+            </li>
+            <li class="nav-item">
+              Data 3
+            </li>
+            <li class="nav-item">
+              Data 4
+            </li>
+          </ul>
+        </div>
+      </div>
     """
   end
 end

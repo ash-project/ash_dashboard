@@ -1,0 +1,12 @@
+form {
+  .form-section-heading {
+    // &:not:first-child{
+      margin-top: 30px;
+    // }
+  }
+
+  label {
+    font-size: 13px;
+    margin-bottom: 0px;
+  }
+}
