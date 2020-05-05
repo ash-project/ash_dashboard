@@ -39,7 +39,6 @@ defmodule AshDashboard.ResourceLive do
   @impl true
   def render(assigns) do
     ~L"""
-      <h2><%= Ash.name(@resource) %> Resource</h2>
       <%= f = form_for @resource, "#", [phx_change: :validate, phx_submit: :save, class: "resource"] %>
         <div class="form-row">
           <div class="form-group col-sm-12">

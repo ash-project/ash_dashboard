@@ -53,8 +53,18 @@ defmodule AshDashboard.ResourcesLive do
   @impl true
   def render(assigns) do
     ~L"""
+    <div class="form-row">
+      <div class="form-group col-sm-10">
+        <h2>Resources</h2>
+      </div>
+      <div class="form-group col-sm-1">
+        <button phx-click="new" class="btn btn-primary">New</button>
+      </div>
+      <div class="form-group col-sm-1">
+        <button phx-click="import" class="btn btn-primary">Import</button>
+      </div>
+    </div>
     <div class="tabular-page">
-      <h5 class="card-title">Resources</h5>
       <div class="tabular-search">
       <form phx-change="search" phx-submit="search" class="form-inline">
         <div class="form-row align-items-center">
@@ -116,6 +126,14 @@ defmodule AshDashboard.ResourcesLive do
 
   def handle_event("show_info", %{"name" => name}, socket) do
     {:noreply, push_redirect(socket, to: ash_dashboard_path(socket, :resource, [], name))}
+  end
+
+  def handle_event("new", _, socket) do
+    {:noreply, push_redirect(socket, to: ash_dashboard_path(socket, :resources_new))}
+  end
+
+  def handle_event("import", _, socket) do
+    {:noreply, push_redirect(socket, to: ash_dashboard_path(socket, :resources_import))}
   end
 
   @impl true
