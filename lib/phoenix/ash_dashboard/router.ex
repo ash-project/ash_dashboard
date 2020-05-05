@@ -18,6 +18,7 @@ defmodule AshDashboard.Router do
         live "/requests/", AshDashboard.RequestsLive, :requests, opts
         live "/admin/", AshDashboard.AdminLive, :admin, opts
         live "/docs/", AshDashboard.DocsLive, :docs, opts
+        live "/community/", AshDashboard.CommunityLive, :community, opts
       end
     end
   end

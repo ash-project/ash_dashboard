@@ -1,4 +1,4 @@
-defmodule AshDashboard.ResourcesImportLive do
+defmodule AshDashboard.CommunityLive do
   use AshDashboard.Web, :live_view
   import AshDashboard.TableHelpers
 
@@ -19,15 +19,7 @@ defmodule AshDashboard.ResourcesImportLive do
   @impl true
   def render(assigns) do
     ~L"""
-      Import Your Resource
-      <div class="form-row">
-        <div class="form-group col-sm-11">
-          <%= live_redirect("Back", to: ash_dashboard_path(@socket, :resources), class: "menu-item") %>
-        </div>
-        <div class="form-group col-sm-1">
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-      </div>
+      Welcome to the Ash Community
     """
   end
 

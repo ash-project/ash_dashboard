@@ -18,6 +18,7 @@ defmodule AshDashboard.MenuLive do
       <%= maybe_active_live_redirect @socket, @menu, "Requests", :requests %>
       <%= maybe_active_live_redirect @socket, @menu, "Admin", :admin %>
       <%= maybe_active_live_redirect @socket, @menu, "Docs", :docs %>
+      <%= maybe_active_live_redirect @socket, @menu, "Community", :community %>
     </nav>
     """
   end

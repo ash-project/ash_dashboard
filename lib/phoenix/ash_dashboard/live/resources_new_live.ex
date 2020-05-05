@@ -20,6 +20,14 @@ defmodule AshDashboard.ResourcesNewLive do
   def render(assigns) do
     ~L"""
       New Resource
+      <div class="form-row">
+        <div class="form-group col-sm-11">
+          <%= live_redirect("Back", to: ash_dashboard_path(@socket, :resources), class: "menu-item") %>
+        </div>
+        <div class="form-group col-sm-1">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
     """
   end
 
