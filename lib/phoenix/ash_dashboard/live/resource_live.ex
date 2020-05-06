@@ -48,7 +48,7 @@ defmodule AshDashboard.ResourceLive do
         <div class="form-row">
           <div class="form-group col-sm-4">
             <label for="inputName4">Name</label>
-            <input type="text" class="form-control" id="inputName4" placeholder="Name" value="<%= @resource.name() %>">
+            <input type="text" class="form-control" id="inputName4" placeholder="Name" value="<%= Ash.name(@resource) %>">
           </div>
           <div class="form-group col-sm-2">
             <label for="inputType4">Type</label>
@@ -61,15 +61,15 @@ defmodule AshDashboard.ResourceLive do
           </div>
           <div class="form-group col-sm-2">
             <label for="inputPrimaryKey4">Primary Key</label>
-            <input type="text" class="form-control" id="inputPrimaryKey4" placeholder="PrimaryKey" value="<%= @resource.type() %>">
+            <input type="text" class="form-control" id="inputPrimaryKey4" placeholder="PrimaryKey" value="<%= Ash.type(@resource) %>">
           </div>
           <div class="form-group col-sm-2">
             <label for="inputMaxPageSize4">Max Page Size</label>
-            <input type="text" class="form-control" id="inputMaxPageSize4" placeholder="MaxPageSize" value="<%= @resource.max_page_size() %>">
+            <input type="text" class="form-control" id="inputMaxPageSize4" placeholder="MaxPageSize" value="<%= Ash.max_page_size(@resource) %>">
           </div>
           <div class="form-group col-sm-2">
             <label for="inputDefaultPageSize4">Default Page Size</label>
-            <input type="text" class="form-control" id="inputDefaultPageSize4" placeholder="DefaultPageSize" value="<%= @resource.default_page_size() %>">
+            <input type="text" class="form-control" id="inputDefaultPageSize4" placeholder="DefaultPageSize" value="<%= Ash.default_page_size(@resource) %>">
           </div>
         </div>        
         <div class="form-row">
@@ -132,10 +132,10 @@ defmodule AshDashboard.ResourceLive do
               <input type="checkbox" id="gridCheck" checked=<%= attribute.writable?() %>>
             </div>
             <div class="form-group col-sm-1">
-              <input type="text" class="form-control" id="inputName4" placeholder="Name" value="NOT WORKING">
+              <input type="text" class="form-control" id="inputName4" placeholder="Name" value="<%= inspect(attribute.default) %> ">
             </div>
             <div class="form-group col-sm-2">
-              <input type="text" class="form-control" id="inputName4" placeholder="Name" value="NOT HTML SAFE">
+              <input type="text" class="form-control" id="inputName4" placeholder="Name" value="<%= inspect(attribute.update_default) %> ">
             </div>
             <div class="form-group col-sm-2">
               <input type="text" class="form-control" id="inputName4" placeholder="Name" value="<%= attribute.write_rules() %>">
@@ -149,6 +149,38 @@ defmodule AshDashboard.ResourceLive do
         </div>
         <div class="form-group col-sm-1">
           <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            1 of 2
+          </div>
+          <div class="col">
+            2 of 2
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            1 of 3
+          </div>
+          <div class="col">
+            2 of 3
+          </div>
+          <div class="col">
+            3 of 3
+          </div>
         </div>
       </div>
     """

@@ -29,3 +29,12 @@
 @import "./app/liveview";
 
 @import "../node_modules/nprogress/nprogress.css";
+
+
+table.action-support tr {
+  svg {
+    max-height: 25px;
+    margin: auto;
+    display: block;
+  }
+}

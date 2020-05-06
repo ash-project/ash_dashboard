@@ -116,6 +116,226 @@ defmodule AshDashboard.ResourcesLive do
       </div>
       </div>
     </div>
+
+
+
+
+
+
+
+
+
+    <div class="card">
+    <div class="card-header">
+      <h1>School</h1>
+    </div>
+    <div class="card-body">
+      <h6 class="card-title">Optional Descrption</h5>
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title text-center">Attributes</h5>
+              <h1 class="text-center font-weight-bold text-primary">27</h1>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title">Functions</h5>
+              <h1 class="text-center font-weight-bold text-primary">11</h1>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-sm-2">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title text-center">Computed</h5>
+              <h1 class="text-center font-weight-bold text-primary">3</h1>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">Aggregates</h5>
+              <h1 class="text-center font-weight-bold text-primary">18</h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-2">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title text-center">Queries</h5>
+              <h1 class="text-center font-weight-bold text-primary">4</h1>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title">Source</h5>
+              <h1 class="text-center font-weight-bold text-primary">PG</h1>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <table class="table font-weight-light table-sm table-borderless action-support">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col" >JSON:API</th>
+                    <th scope="col">GraphQL</th>
+                    <th scope="col">gRPC</th>
+                    <th scope="col">PDF</th>
+                    <th scope="col">CSV</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-bottom">
+                    <th scope="row">Create</th>
+                    <td>
+                      <svg class="circle-check" id="Layer_1" style="enable-background:new 0 0 612 792;" version="1.1" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                        .st0{clip-path:url(#SVGID_2_);fill:none;stroke:#41AD49;stroke-width:32;}
+                        .st1{fill:#41AD49;}
+                      </style><g><g><defs><rect height="512" id="SVGID_1_" width="512" x="50" y="140"/></defs><clipPath id="SVGID_2_"><use style="overflow:visible;" xlink:href="#SVGID_1_"/></clipPath><path class="st0" d="M306,629.5c128.8,0,233.5-104.7,233.5-233.5S434.8,162.5,306,162.5S72.5,267.2,72.5,396    S177.2,629.5,306,629.5L306,629.5z"/></g><polygon class="st1" points="421.4,271 241.9,450.5 174.9,383.5 122,436.4 241.9,556.2 257.3,540.8 257.4,540.8 474.3,323.9    421.4,271  "/></g></svg>
+                    </td>
+                    <td>
+                      <svg class="circle-check" id="Layer_1" style="enable-background:new 0 0 612 792;" version="1.1" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                        .st0{clip-path:url(#SVGID_2_);fill:none;stroke:#41AD49;stroke-width:32;}
+                        .st1{fill:#41AD49;}
+                      </style><g><g><defs><rect height="512" id="SVGID_1_" width="512" x="50" y="140"/></defs><clipPath id="SVGID_2_"><use style="overflow:visible;" xlink:href="#SVGID_1_"/></clipPath><path class="st0" d="M306,629.5c128.8,0,233.5-104.7,233.5-233.5S434.8,162.5,306,162.5S72.5,267.2,72.5,396    S177.2,629.5,306,629.5L306,629.5z"/></g><polygon class="st1" points="421.4,271 241.9,450.5 174.9,383.5 122,436.4 241.9,556.2 257.3,540.8 257.4,540.8 474.3,323.9    421.4,271  "/></g></svg>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <svg class="circle-check" id="Layer_1" style="enable-background:new 0 0 612 792;" version="1.1" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                        .st0{clip-path:url(#SVGID_2_);fill:none;stroke:#41AD49;stroke-width:32;}
+                        .st1{fill:#41AD49;}
+                      </style><g><g><defs><rect height="512" id="SVGID_1_" width="512" x="50" y="140"/></defs><clipPath id="SVGID_2_"><use style="overflow:visible;" xlink:href="#SVGID_1_"/></clipPath><path class="st0" d="M306,629.5c128.8,0,233.5-104.7,233.5-233.5S434.8,162.5,306,162.5S72.5,267.2,72.5,396    S177.2,629.5,306,629.5L306,629.5z"/></g><polygon class="st1" points="421.4,271 241.9,450.5 174.9,383.5 122,436.4 241.9,556.2 257.3,540.8 257.4,540.8 474.3,323.9    421.4,271  "/></g></svg>
+                    </td>
+                  </tr>
+                  <tr class="border-bottom">
+                    <th scope="row">Read</th>
+                    <td>
+                      <svg class="circle-check" id="Layer_1" style="enable-background:new 0 0 612 792;" version="1.1" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                        .st0{clip-path:url(#SVGID_2_);fill:none;stroke:#41AD49;stroke-width:32;}
+                        .st1{fill:#41AD49;}
+                      </style><g><g><defs><rect height="512" id="SVGID_1_" width="512" x="50" y="140"/></defs><clipPath id="SVGID_2_"><use style="overflow:visible;" xlink:href="#SVGID_1_"/></clipPath><path class="st0" d="M306,629.5c128.8,0,233.5-104.7,233.5-233.5S434.8,162.5,306,162.5S72.5,267.2,72.5,396    S177.2,629.5,306,629.5L306,629.5z"/></g><polygon class="st1" points="421.4,271 241.9,450.5 174.9,383.5 122,436.4 241.9,556.2 257.3,540.8 257.4,540.8 474.3,323.9    421.4,271  "/></g></svg>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <svg class="circle-check" id="Layer_1" style="enable-background:new 0 0 612 792;" version="1.1" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                        .st0{clip-path:url(#SVGID_2_);fill:none;stroke:#41AD49;stroke-width:32;}
+                        .st1{fill:#41AD49;}
+                      </style><g><g><defs><rect height="512" id="SVGID_1_" width="512" x="50" y="140"/></defs><clipPath id="SVGID_2_"><use style="overflow:visible;" xlink:href="#SVGID_1_"/></clipPath><path class="st0" d="M306,629.5c128.8,0,233.5-104.7,233.5-233.5S434.8,162.5,306,162.5S72.5,267.2,72.5,396    S177.2,629.5,306,629.5L306,629.5z"/></g><polygon class="st1" points="421.4,271 241.9,450.5 174.9,383.5 122,436.4 241.9,556.2 257.3,540.8 257.4,540.8 474.3,323.9    421.4,271  "/></g></svg>
+                    </td>
+                    <td>
+                      <svg class="circle-check" id="Layer_1" style="enable-background:new 0 0 612 792;" version="1.1" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                        .st0{clip-path:url(#SVGID_2_);fill:none;stroke:#41AD49;stroke-width:32;}
+                        .st1{fill:#41AD49;}
+                      </style><g><g><defs><rect height="512" id="SVGID_1_" width="512" x="50" y="140"/></defs><clipPath id="SVGID_2_"><use style="overflow:visible;" xlink:href="#SVGID_1_"/></clipPath><path class="st0" d="M306,629.5c128.8,0,233.5-104.7,233.5-233.5S434.8,162.5,306,162.5S72.5,267.2,72.5,396    S177.2,629.5,306,629.5L306,629.5z"/></g><polygon class="st1" points="421.4,271 241.9,450.5 174.9,383.5 122,436.4 241.9,556.2 257.3,540.8 257.4,540.8 474.3,323.9    421.4,271  "/></g></svg>
+                    </td>
+                  </tr>
+                  <tr class="border-bottom">
+                    <th scope="row">Update</th>
+                    <td>
+                      <svg class="circle-check" id="Layer_1" style="enable-background:new 0 0 612 792;" version="1.1" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                        .st0{clip-path:url(#SVGID_2_);fill:none;stroke:#41AD49;stroke-width:32;}
+                        .st1{fill:#41AD49;}
+                      </style><g><g><defs><rect height="512" id="SVGID_1_" width="512" x="50" y="140"/></defs><clipPath id="SVGID_2_"><use style="overflow:visible;" xlink:href="#SVGID_1_"/></clipPath><path class="st0" d="M306,629.5c128.8,0,233.5-104.7,233.5-233.5S434.8,162.5,306,162.5S72.5,267.2,72.5,396    S177.2,629.5,306,629.5L306,629.5z"/></g><polygon class="st1" points="421.4,271 241.9,450.5 174.9,383.5 122,436.4 241.9,556.2 257.3,540.8 257.4,540.8 474.3,323.9    421.4,271  "/></g></svg>
+                    </td>
+                    <td>
+                      <svg class="circle-check" id="Layer_1" style="enable-background:new 0 0 612 792;" version="1.1" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                        .st0{clip-path:url(#SVGID_2_);fill:none;stroke:#41AD49;stroke-width:32;}
+                        .st1{fill:#41AD49;}
+                      </style><g><g><defs><rect height="512" id="SVGID_1_" width="512" x="50" y="140"/></defs><clipPath id="SVGID_2_"><use style="overflow:visible;" xlink:href="#SVGID_1_"/></clipPath><path class="st0" d="M306,629.5c128.8,0,233.5-104.7,233.5-233.5S434.8,162.5,306,162.5S72.5,267.2,72.5,396    S177.2,629.5,306,629.5L306,629.5z"/></g><polygon class="st1" points="421.4,271 241.9,450.5 174.9,383.5 122,436.4 241.9,556.2 257.3,540.8 257.4,540.8 474.3,323.9    421.4,271  "/></g></svg>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="border-bottom">
+                    <th scope="row">Destroy</th>
+                    <td>
+                      <svg class="circle-check" id="Layer_1" style="enable-background:new 0 0 612 792;" version="1.1" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                        .st0{clip-path:url(#SVGID_2_);fill:none;stroke:#41AD49;stroke-width:32;}
+                        .st1{fill:#41AD49;}
+                      </style><g><g><defs><rect height="512" id="SVGID_1_" width="512" x="50" y="140"/></defs><clipPath id="SVGID_2_"><use style="overflow:visible;" xlink:href="#SVGID_1_"/></clipPath><path class="st0" d="M306,629.5c128.8,0,233.5-104.7,233.5-233.5S434.8,162.5,306,162.5S72.5,267.2,72.5,396    S177.2,629.5,306,629.5L306,629.5z"/></g><polygon class="st1" points="421.4,271 241.9,450.5 174.9,383.5 122,436.4 241.9,556.2 257.3,540.8 257.4,540.8 474.3,323.9    421.4,271  "/></g></svg>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="border-bottom">
+                    <th scope="row">Ship</th>
+                    <td>
+                      <svg class="circle-check" id="Layer_1" style="enable-background:new 0 0 612 792;" version="1.1" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                        .st0{clip-path:url(#SVGID_2_);fill:none;stroke:#41AD49;stroke-width:32;}
+                        .st1{fill:#41AD49;}
+                      </style><g><g><defs><rect height="512" id="SVGID_1_" width="512" x="50" y="140"/></defs><clipPath id="SVGID_2_"><use style="overflow:visible;" xlink:href="#SVGID_1_"/></clipPath><path class="st0" d="M306,629.5c128.8,0,233.5-104.7,233.5-233.5S434.8,162.5,306,162.5S72.5,267.2,72.5,396    S177.2,629.5,306,629.5L306,629.5z"/></g><polygon class="st1" points="421.4,271 241.9,450.5 174.9,383.5 122,436.4 241.9,556.2 257.3,540.8 257.4,540.8 474.3,323.9    421.4,271  "/></g></svg>
+                    </td>
+                    <td>
+                      <svg class="circle-check" id="Layer_1" style="enable-background:new 0 0 612 792;" version="1.1" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                        .st0{clip-path:url(#SVGID_2_);fill:none;stroke:#41AD49;stroke-width:32;}
+                        .st1{fill:#41AD49;}
+                      </style><g><g><defs><rect height="512" id="SVGID_1_" width="512" x="50" y="140"/></defs><clipPath id="SVGID_2_"><use style="overflow:visible;" xlink:href="#SVGID_1_"/></clipPath><path class="st0" d="M306,629.5c128.8,0,233.5-104.7,233.5-233.5S434.8,162.5,306,162.5S72.5,267.2,72.5,396    S177.2,629.5,306,629.5L306,629.5z"/></g><polygon class="st1" points="421.4,271 241.9,450.5 174.9,383.5 122,436.4 241.9,556.2 257.3,540.8 257.4,540.8 474.3,323.9    421.4,271  "/></g></svg>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Complete</th>
+                    <td>
+                      <svg class="circle-check" id="Layer_1" style="enable-background:new 0 0 612 792;" version="1.1" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                        .st0{clip-path:url(#SVGID_2_);fill:none;stroke:#41AD49;stroke-width:32;}
+                        .st1{fill:#41AD49;}
+                      </style><g><g><defs><rect height="512" id="SVGID_1_" width="512" x="50" y="140"/></defs><clipPath id="SVGID_2_"><use style="overflow:visible;" xlink:href="#SVGID_1_"/></clipPath><path class="st0" d="M306,629.5c128.8,0,233.5-104.7,233.5-233.5S434.8,162.5,306,162.5S72.5,267.2,72.5,396    S177.2,629.5,306,629.5L306,629.5z"/></g><polygon class="st1" points="421.4,271 241.9,450.5 174.9,383.5 122,436.4 241.9,556.2 257.3,540.8 257.4,540.8 474.3,323.9    421.4,271  "/></g></svg>
+                    </td>
+                    <td>
+                      <svg class="circle-check" id="Layer_1" style="enable-background:new 0 0 612 792;" version="1.1" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                        .st0{clip-path:url(#SVGID_2_);fill:none;stroke:#41AD49;stroke-width:32;}
+                        .st1{fill:#41AD49;}
+                      </style><g><g><defs><rect height="512" id="SVGID_1_" width="512" x="50" y="140"/></defs><clipPath id="SVGID_2_"><use style="overflow:visible;" xlink:href="#SVGID_1_"/></clipPath><path class="st0" d="M306,629.5c128.8,0,233.5-104.7,233.5-233.5S434.8,162.5,306,162.5S72.5,267.2,72.5,396    S177.2,629.5,306,629.5L306,629.5z"/></g><polygon class="st1" points="421.4,271 241.9,450.5 174.9,383.5 122,436.4 241.9,556.2 257.3,540.8 257.4,540.8 474.3,323.9    421.4,271  "/></g></svg>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>    
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+  </div>  
+</div>
+
+
+
+Hi
+<form>
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck1" checked=true>
+  </div>
+</form>
+
+Bye
     """
   end
 
