@@ -7,7 +7,7 @@ import "select2/dist/css/select2.css"
 const SelectPrimaryResource = {
   initSelect2() {
     let hook = this;
-    let $select = jQuery(hook.el).find("select");
+    let $select = jQuery(hook.el).find("#select-primary-resource");
     return $select.select2().on("select2:select", (e) => hook.selected(hook, e))
   },
 
@@ -19,7 +19,7 @@ const SelectPrimaryResource = {
   selected(hook, event) {
     let id = event.params.data.id;
     console.log("SelectPrimaryResource selected", id)
-    hook.pushEvent("primary_resource_selected", {resource: id})
+    hook.pushEvent("primary_resource_selected", {primary_resource: id})
   }
 }
 

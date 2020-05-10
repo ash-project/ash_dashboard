@@ -11,7 +11,7 @@ defmodule AshDashboard.RequestsLive do
       |> assign_defaults(params, session)
       |> assign(:apis, session["apis"])
       |> assign(:operation, nil)
-      |> assign(:resource, nil)
+      |> assign(:primary_resource, nil)
       |> assign(:primary_data_type, "Collection")
       |> assign(:foo, "bar")
     {:ok, socket}
@@ -55,7 +55,7 @@ defmodule AshDashboard.RequestsLive do
                   <%= base_url %>
                 </span>
                 <div class="select2" phx-hook="SelectPrimaryResource" phx-update="ignore">
-                  <select name="resource">
+                  <select id="select-primary-resource" name="resource">
                     <option value=""></option>
                     <%= for r <- @resources do %>
                       <option value="<%= Ash.name(r) %>">
@@ -117,7 +117,7 @@ defmodule AshDashboard.RequestsLive do
                 <p class="font-weight-bold">Ash</p>
               </div>
               <div class="col-11" phx-hook="HighlightCode" phx-ignore=true>
-                <pre><code class="language-elixir"><%= ash_output(@operation, @resource) %></code></pre>
+                <pre><code class="language-elixir"><%= ash_output(@operation, @primary_resource) %></code></pre>
               </div>
             </div>
             <div class="row pt-3 mb-3 border-top">
@@ -196,9 +196,9 @@ defmodule AshDashboard.RequestsLive do
     {:noreply, assign(socket, operation: name)}
   end
 
-  def handle_event("primary_resource_selected", %{"resource" => name}, socket) do
+  def handle_event("primary_resource_selected", %{"primary_resource" => name}, socket) do
     IO.inspect("primary_resource_selected: #{name}")
-    {:noreply, assign(socket, resource: name)}
+    {:noreply, assign(socket, primary_resource: name)}
   end
 
   def base_url do
@@ -229,15 +229,15 @@ defmodule AshDashboard.RequestsLive do
     """
   end
 
-  def ash_output(operation, resource) do
+  def ash_output(operation, primary_resource) do
     IO.inspect("ash_output/1b")
  
     app_name = "MyApp"
     api_name = app_name <> ".Api"
     op = String.downcase(operation || "OPERATION")
-    resource = app_name <> "." <> String.capitalize(resource || "RESOURCE")
+    primary_resource = app_name <> "." <> String.capitalize(primary_resource || "RESOURCE")
 
-    api_name <> "." <> op <> "(" <> resource <> ")"
+    api_name <> "." <> op <> "(" <> primary_resource <> ")"
   end
 end
 
