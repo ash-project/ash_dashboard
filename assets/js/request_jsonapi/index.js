@@ -5,15 +5,14 @@ import select2 from "select2"
 import "select2/dist/css/select2.css"
 
 const SelectPrimaryResource = {
-  initSelect2() {
-    let hook = this;
-    let $select = jQuery(hook.el).find("#select-primary-resource");
-    return $select.select2().on("select2:select", (e) => hook.selected(hook, e))
+  _initSelect2(id, opts={}) {
+    console.log(`${id} mounted`)
+    let $select = jQuery(this.el).find(id);
+    return $select.select2(opts).on("select2:select", (e) => this.selected(this, e))
   },
 
   mounted() {
-    console.log("SelectPrimaryResource mounted")
-    this.initSelect2();
+    this._initSelect2("#select-primary-resource");
   },
 
   selected(hook, event) {
