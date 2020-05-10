@@ -54,7 +54,7 @@ defmodule AshDashboard.RequestsLive do
                 <span class="api-name">
                   <%= base_url %>
                 </span>
-                <div class="select2" phx-hook="SelectResource" phx-update="ignore">
+                <div class="select2" phx-hook="SelectPrimaryResource" phx-update="ignore">
                   <select name="resource">
                     <option value=""></option>
                     <%= for r <- @resources do %>
@@ -70,7 +70,7 @@ defmodule AshDashboard.RequestsLive do
                 <% end %>
                 <%= if @primary_data_type == "Relationship" do %>
                   <span>/</span>
-                  <div class="select2" phx-hook="SelectResource" phx-update="ignore">
+                  <div class="select2" phx-hook="SelectPrimaryResource" phx-update="ignore">
                     <select name="resource">
                       <option value=""></option>
                       <%= for r <- @resources do %>
@@ -109,10 +109,7 @@ defmodule AshDashboard.RequestsLive do
                 <p class="font-weight-bold">Options</p>
               </div>
               <div class="col-6">
-                GET construct url
-              </div>
-              <div class="col-5">
-                GET pretty output of url
+                N/A
               </div>
             </div>
             <div class="row pt-3 mb-3 border-top">
@@ -199,11 +196,8 @@ defmodule AshDashboard.RequestsLive do
     {:noreply, assign(socket, operation: name)}
   end
 
-  def handle_event("resource_selected", %{"resource" => name}, socket) do
-    IO.inspect("resource_selected: #{name}")
-    IO.inspect(name)
-    IO.inspect("resource_selected")
-
+  def handle_event("primary_resource_selected", %{"resource" => name}, socket) do
+    IO.inspect("primary_resource_selected: #{name}")
     {:noreply, assign(socket, resource: name)}
   end
 
