@@ -40,3 +40,23 @@ table.action-support tr {
     display: block;
   }
 }
+
+
+.select2 {
+  display: inline-block;
+  height: 40px;
+
+  .select2-container {
+    padding-top: 4px;
+    min-width: 120px;
+  }
+}
+
+.primary-resource-id {
+  width: 80px;
+}
+
+span.api-name {
+  height: 40px;
+  vertical-align: middle;
+}

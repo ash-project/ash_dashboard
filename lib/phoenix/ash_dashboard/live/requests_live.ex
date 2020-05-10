@@ -12,6 +12,7 @@ defmodule AshDashboard.RequestsLive do
       |> assign(:apis, session["apis"])
       |> assign(:operation, nil)
       |> assign(:resource, nil)
+      |> assign(:primary_data_type, "Collection")
       |> assign(:foo, "bar")
     {:ok, socket}
   end
@@ -39,22 +40,23 @@ defmodule AshDashboard.RequestsLive do
   @impl true
   def render(assigns) do
     ~L"""
-      <h1>JSON API Explorer</h1>
-      <div class="card">
+      <div class="card mb-5">
+        <div class="card-header">
+          Request
+        </div>
         <div class="card-body">
           <div class="container">
-            <div class="row mb-3">
-              <div class="col">
-                <div class="btn-group" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-secondary">Resource</button>
-                  <button type="button" class="btn btn-secondary">Collection</button>
-                  <button type="button" class="btn btn-secondary">Relationship Collection</button>
-                </div>      
+            <div class="row mb-3 justify-content-between">
+              <div class="col-1">
+                <p class="font-weight-bold">URL</p>
               </div>
-              <div class="col">
+              <div class="col-7">
+                <span class="api-name">
+                  <%= base_url %>
+                </span>
                 <div class="select2" phx-hook="SelectResource" phx-update="ignore">
                   <select name="resource">
-                    <option value="">Choose Primary Data Source</option>
+                    <option value=""></option>
                     <%= for r <- @resources do %>
                       <option value="<%= Ash.name(r) %>">
                         <%= Ash.name(r) %>
@@ -62,10 +64,37 @@ defmodule AshDashboard.RequestsLive do
                     <% end %>
                   </select>
                 </div>
+                <%= if @primary_data_type == "Item" || @primary_data_type == "Relationship" do %>
+                  <span>/</span>
+                  <input class="primary-resource-id" placeholder="id">
+                <% end %>
+                <%= if @primary_data_type == "Relationship" do %>
+                  <span>/</span>
+                  <div class="select2" phx-hook="SelectResource" phx-update="ignore">
+                    <select name="resource">
+                      <option value=""></option>
+                      <%= for r <- @resources do %>
+                        <option value="<%= Ash.name(r) %>">
+                          <%= Ash.name(r) %>
+                        </option>
+                      <% end %>
+                    </select>
+                  </div>
+                <% end %>
+              </div>
+              <div class="col-4">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-outline-secondary <%= if @primary_data_type == "Item" do "active" end %>" phx-click="select_primary_data_type" phx-value-type="Item">Item</button>
+                  <button type="button" class="btn btn-outline-secondary <%= if @primary_data_type == "Collection" do "active" end %>" phx-click="select_primary_data_type" phx-value-type="Collection">Collection</button>
+                  <button type="button" class="btn btn-outline-secondary <%= if @primary_data_type == "Relationship" do "active" end %>" phx-click="select_primary_data_type" phx-value-type="Relationship">Relationship</button>
+                </div>      
               </div>
             </div>
-            <div class="row mb-3">
-              <div class="col">
+            <div class="row pt-3 mb-3 border-top">
+              <div class="col-1">
+                <p class="font-weight-bold">Action</p>
+              </div>
+              <div class="col-11">
                 <button type="button" class="btn btn-outline-primary <%= if @operation == "GET" do "active" end %>" phx-click="select_operation" phx-value-name="GET">GET</button>
                 <button type="button" class="btn btn-outline-primary <%= if @operation == "INDEX" do "active" end %>" phx-click="select_operation" phx-value-name="INDEX">INDEX</button>
                 <button type="button" class="btn btn-outline-success <%= if @operation == "CREATE" do "active" end %>" phx-click="select_operation" phx-value-name="CREATE">CREATE</button>
@@ -75,42 +104,43 @@ defmodule AshDashboard.RequestsLive do
                 <button type="button" class="btn btn-outline-danger <%= if @operation == "DESTROY" do "active" end %>" phx-click="select_operation" phx-value-name="DESTROY">DESTROY</button>
               </div>
             </div>
-            <%= if @operation == "GET" do %>
-              <div class="row mb-3">
-                <div class="col">
-                  GET construct url
-                </div>
-                <div class="col">
-                  GET pretty output of url
-                </div>
+            <div class="row pt-3 mb-3 border-top">
+              <div class="col-1">
+                <p class="font-weight-bold">Options</p>
               </div>
-            <% else %>
-              <div class="row mb-3">
-                <div class="col">
-                  construct url
-                </div>
-                <div class="col">
-                  pretty output of url
-                </div>
+              <div class="col-6">
+                GET construct url
               </div>
-            <% end %>
-            <div class="row mb-3">
-              <div class="col" phx-hook="HighlightCode" phx-ignore=true>
-                Ash Equivilant
-                <pre>
-                  <code class="language-elixir">
-<%= ash_output(@operation, @resource) %>
-                  </code>
-                </pre>
+              <div class="col-5">
+                GET pretty output of url
               </div>
             </div>
-            <div class="row mb-3">
-              <div class="col">
+            <div class="row pt-3 mb-3 border-top">
+              <div class="col-1">
+                <p class="font-weight-bold">Ash</p>
+              </div>
+              <div class="col-11" phx-hook="HighlightCode" phx-ignore=true>
+                <pre><code class="language-elixir"><%= ash_output(@operation, @resource) %></code></pre>
+              </div>
+            </div>
+            <div class="row pt-3 mb-3 border-top">
+              <div class="col-11 offset-11">
                 <a href="#" class="btn btn-primary">Send</a>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          Response
+        </div>
+        <div class="card-body">
+          <div class="container">       
             <div class="row mb-3">
               <div class="col">              
+                Data
                 <table class="table">
                   <thead>
                     <tr>
@@ -147,25 +177,7 @@ defmodule AshDashboard.RequestsLive do
                 <div phx-hook="HighlightCode" phx-ignore=true>
                   <pre>
                     <code class="language-json">
-                      {
-                        "data": {
-                            "attributes": {
-                                "created_at": "2020-03-25T01:34:20Z",
-                                "short_name": "Hogwarts",
-                                "updated_at": "2020-03-25T01:34:20Z",
-                            },
-                            "id": 1,
-                            "links": {},
-                            "relationships": {},
-                            "type": "school"
-                        },
-                        "jsonapi": {
-                            "version": "1.0"
-                        },
-                        "links": {
-                            "self": "http://localhost:4000/ash-api/educators/2/school?include=educators"
-                        }
-                      }
+<%= json %>
                     </code>
                   </pre>
                 </div>
@@ -176,7 +188,12 @@ defmodule AshDashboard.RequestsLive do
       </div>
     """
   end
-  
+
+  def handle_event("select_primary_data_type", %{"type" => type}, socket) do
+    IO.inspect("select_primary_data_type: #{type}")
+    {:noreply, assign(socket, primary_data_type: type)}
+  end
+
   def handle_event("select_operation", %{"name" => name}, socket) do
     IO.inspect("select_operation: #{name}")
     {:noreply, assign(socket, operation: name)}
@@ -190,14 +207,64 @@ defmodule AshDashboard.RequestsLive do
     {:noreply, assign(socket, resource: name)}
   end
 
+  def base_url do
+   "https://myapp.com/api/"
+  end
+  
+  def json do
+    ~s"""
+    {
+      "data": {
+          "attributes": {
+              "created_at": "2020-03-25T01:34:20Z",
+              "short_name": "Hogwarts",
+              "updated_at": "2020-03-25T01:34:20Z",
+          },
+          "id": 1,
+          "links": {},
+          "relationships": {},
+          "type": "school"
+      },
+      "jsonapi": {
+          "version": "1.0"
+      },
+      "links": {
+          "self": "http://localhost:4000/ash-api/educators/2/school?include=educators"
+      }
+    }
+    """
+  end
+
   def ash_output(operation, resource) do
     IO.inspect("ash_output/1b")
  
     app_name = "MyApp"
     api_name = app_name <> ".Api"
     op = String.downcase(operation || "OPERATION")
-    resource = app_name <> "." <> String.upcase(resource || "RESOURCE")
+    resource = app_name <> "." <> String.capitalize(resource || "RESOURCE")
 
     api_name <> "." <> op <> "(" <> resource <> ")"
   end
 end
+
+
+
+# <%= if @operation == "GET" do %>
+# <div class="row mb-3">
+#   <div class="col">
+#     GET construct url
+#   </div>
+#   <div class="col">
+#     GET pretty output of url
+#   </div>
+# </div>
+# <% else %>
+# <div class="row mb-3">
+#   <div class="col">
+#     construct url
+#   </div>
+#   <div class="col">
+#     pretty output of url
+#   </div>
+# </div>
+# <% end %>
