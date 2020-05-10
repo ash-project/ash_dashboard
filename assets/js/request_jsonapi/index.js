@@ -4,22 +4,29 @@ import jQuery from "jquery"
 import select2 from "select2"
 import "select2/dist/css/select2.css"
 
-const SelectPrimaryResource = {
-  _initSelect2(id, opts={}) {
-    console.log(`${id} mounted`)
-    let $select = jQuery(this.el).find(id);
-    return $select.select2(opts).on("select2:select", (e) => this.selected(this, e))
-  },
+const _initSelect2 = (hook, id, opts={}) => {
+  let $select = jQuery(hook.el).find(id);
+  return $select.select2(opts).on("select2:select", (e) => hook.selected(hook, e))
+}
 
+const SelectPrimaryResource = {
   mounted() {
-    this._initSelect2("#select-primary-resource");
+    _initSelect2(this, "#select-primary-resource");
   },
 
   selected(hook, event) {
-    let id = event.params.data.id;
-    console.log("SelectPrimaryResource selected", id)
-    hook.pushEvent("primary_resource_selected", {primary_resource: id})
+    hook.pushEvent("primary_resource_selected", {primary_resource: event.params.data.id})
   }
 }
 
-export default SelectPrimaryResource
+const SelectRelationshipResource = {
+  mounted() {
+    _initSelect2(this, "#select-relationship-resource");
+  },
+
+  selected(hook, event) {
+    hook.pushEvent("relationship_resource_selected", {relationship_resource: event.params.data.id})
+  }
+}
+
+export { SelectPrimaryResource, SelectRelationshipResource }

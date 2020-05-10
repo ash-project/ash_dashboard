@@ -8,7 +8,7 @@ import PhxRequestLoggerCookie from "./request_logger_cookie"
 import PhxRequestLoggerQueryParameter from "./request_logger_query_parameter"
 import PhxRequestLoggerMessages from "./request_logger_messages"
 import HighlightCode from "./highlight_code"
-import SelectPrimaryResource from "./request_jsonapi"
+import { SelectPrimaryResource, SelectRelationshipResource } from "./request_jsonapi"
 
 let Hooks = {
   PhxChartComponent: PhxChartComponent,
@@ -16,7 +16,8 @@ let Hooks = {
   PhxRequestLoggerQueryParameter: PhxRequestLoggerQueryParameter,
   PhxRequestLoggerMessages: PhxRequestLoggerMessages,
   HighlightCode: HighlightCode,
-  SelectPrimaryResource: SelectPrimaryResource
+  SelectPrimaryResource: SelectPrimaryResource,
+  SelectRelationshipResource: SelectRelationshipResource
 }
 
 let socketPath = document.querySelector("html").getAttribute("phx-socket") || "/live"
