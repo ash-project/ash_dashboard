@@ -6,7 +6,8 @@ import "select2/dist/css/select2.css"
 
 const _initSelect2 = (hook, id, opts={}) => {
   let $select = jQuery(hook.el).find(id);
-  return $select.select2(opts).on("select2:select", (e) => hook.selected(hook, e))
+  $select.select2(opts).on("select2:select", (e) => hook.selected(hook, e));
+  $select.select2(opts).on("select2:unselect", (e) => hook.unselect(hook, e));
 }
 
 const SelectPrimaryResource = {
@@ -29,4 +30,20 @@ const SelectRelationshipResource = {
   }
 }
 
-export { SelectPrimaryResource, SelectRelationshipResource }
+const SelectIncludedResources = {
+  mounted() {
+    _initSelect2(this, "#select-included-resources");
+  },
+
+  unselect(hook, event) {
+    console.log("unselect", event)
+    hook.pushEvent("included_resource_unselected", {resource: event.params.data.id})
+  },
+
+  selected(hook, event) {
+    console.log("selected", event)
+    hook.pushEvent("included_resource_selected", {resource: event.params.data.id})
+  }
+}
+
+export { SelectPrimaryResource, SelectRelationshipResource, SelectIncludedResources }
