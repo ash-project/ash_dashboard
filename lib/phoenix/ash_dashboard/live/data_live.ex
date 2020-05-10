@@ -52,8 +52,25 @@ defmodule AshDashboard.DataLive do
   
       <h3>SQL</h3>
       <section class="layer sql">
-        <section class="option">
+        <section class="option" phx-hook="HighlightCode" phx-ignore=true>
           <div>Statement</div>
+          <pre>
+            <code class="language-sql">
+              SELECT
+                e0."school_id",
+                e0."active",
+                e0."updated_at",
+                e0."created_at",
+                e0."id",
+                e0."role",
+                e0."image_url",
+                e0."email",
+                e0."last_name",
+                e0."first_name"
+              FROM
+                "educators" AS e0
+            </code>
+          </pre>
           <textarea id="query"></textarea>
         </section>
         <section class="option">
