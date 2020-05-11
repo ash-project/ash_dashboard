@@ -39,6 +39,7 @@ defmodule AshDashboard.ResourceLive do
   @impl true
   def render(assigns) do
     ~L"""
+      <h1><%= String.capitalize(Ash.name(@resource)) %> Resource</h1>
       <%= f = form_for @resource, "#", [phx_change: :validate, phx_submit: :save, class: "resource"] %>
         <div class="form-row">
           <div class="form-group col-sm-12">
@@ -62,14 +63,6 @@ defmodule AshDashboard.ResourceLive do
           <div class="form-group col-sm-2">
             <label for="inputPrimaryKey4">Primary Key</label>
             <input type="text" class="form-control" id="inputPrimaryKey4" placeholder="PrimaryKey" value="<%= Ash.type(@resource) %>">
-          </div>
-          <div class="form-group col-sm-2">
-            <label for="inputMaxPageSize4">Max Page Size</label>
-            <input type="text" class="form-control" id="inputMaxPageSize4" placeholder="MaxPageSize" value="<%= Ash.max_page_size(@resource) %>">
-          </div>
-          <div class="form-group col-sm-2">
-            <label for="inputDefaultPageSize4">Default Page Size</label>
-            <input type="text" class="form-control" id="inputDefaultPageSize4" placeholder="DefaultPageSize" value="<%= Ash.default_page_size(@resource) %>">
           </div>
         </div>        
         <div class="form-row">
@@ -148,39 +141,7 @@ defmodule AshDashboard.ResourceLive do
           <%= live_redirect("Back", to: ash_dashboard_path(@socket, :resources), class: "menu-item") %>
         </div>
         <div class="form-group col-sm-1">
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-      </div>
-
-
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-
-
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            1 of 2
-          </div>
-          <div class="col">
-            2 of 2
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            1 of 3
-          </div>
-          <div class="col">
-            2 of 3
-          </div>
-          <div class="col">
-            3 of 3
-          </div>
+          <button type="submit" class="btn btn-primary">Save</button>
         </div>
       </div>
     """
@@ -199,3 +160,13 @@ defmodule AshDashboard.ResourceLive do
   end
 
 end
+
+
+# <div class="form-group col-sm-2">
+# <label for="inputMaxPageSize4">Max Page Size</label>
+# <input type="text" class="form-control" id="inputMaxPageSize4" placeholder="MaxPageSize" value="<%= Ash.max_page_size(@resource) %>">
+# </div>
+# <div class="form-group col-sm-2">
+# <label for="inputDefaultPageSize4">Default Page Size</label>
+# <input type="text" class="form-control" id="inputDefaultPageSize4" placeholder="DefaultPageSize" value="<%= Ash.default_page_size(@resource) %>">
+# </div>
