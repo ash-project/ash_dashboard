@@ -14,7 +14,9 @@ defmodule AshDashboard.Router do
         live "/resources/new", AshDashboard.ResourcesNewLive, :resources_new, opts
         live "/resources/import", AshDashboard.ResourcesImportLive, :resources_import, opts
         live "/resource/:id", AshDashboard.ResourceLive, :resource, opts
-        live "/data/", AshDashboard.DataLive, :data, opts
+        live "/database/", AshDashboard.DatabaseLive, :database, opts
+        live "/sql/", AshDashboard.SqlLive, :sql, opts
+        live "/console/", AshDashboard.ConsoleLive, :console, opts
         live "/requests/", AshDashboard.RequestsLive, :requests, opts
         live "/admin/", AshDashboard.AdminLive, :admin, opts
         live "/docs/", AshDashboard.DocsLive, :docs, opts

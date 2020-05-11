@@ -14,7 +14,9 @@ defmodule AshDashboard.MenuLive do
     <nav id="menu-bar">
       <%= maybe_active_live_redirect @socket, @menu, "Home", :home %>
       <%= maybe_active_live_redirect @socket, @menu, "Resources", :resources %>
-      <%= maybe_active_live_redirect @socket, @menu, "Data", :data %>
+      <%= maybe_active_live_redirect @socket, @menu, "Database", :database %>
+      <%= maybe_active_live_redirect @socket, @menu, "SQL", :sql %>
+      <%= maybe_active_live_redirect @socket, @menu, "Console", :console %>
       <%= maybe_active_live_redirect @socket, @menu, "Requests", :requests %>
       <%= maybe_active_live_redirect @socket, @menu, "Admin", :admin %>
       <%= maybe_active_live_redirect @socket, @menu, "Docs", :docs %>

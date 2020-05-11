@@ -1,4 +1,4 @@
-defmodule AshDashboard.DataLive do
+defmodule AshDashboard.ConsoleLive do
   use AshDashboard.Web, :live_view
   import AshDashboard.TableHelpers
 
@@ -35,9 +35,8 @@ defmodule AshDashboard.DataLive do
   @impl true
   def render(assigns) do
     ~L"""
-      Data page
+      <h1>Ash Console</h1>
 
-      <div class="code">HI THERE</div>
       <%= for resource <- @resources do %>
         <%= Ash.name(resource) %>
       <% end %>
