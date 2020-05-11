@@ -6,6 +6,14 @@ defmodule AshDashboard.RequestsLive do
 
   @impl true
   def mount(params, session, socket) do
+    sorts = [
+      %{option: "option 1", direction: "asc"},
+      %{option: "option 2", direction: "asc"},
+      %{option: "option 4", direction: "dsc"},
+      %{option: "option 5", direction: "dsc"},
+      %{option: "option 6", direction: "dsc"}
+    ]
+
     socket =
       socket
       |> assign_defaults(params, session)
@@ -14,6 +22,7 @@ defmodule AshDashboard.RequestsLive do
       |> assign(:primary_resource, nil)
       |> assign(:relationship_resource, nil)
       |> assign(:included_resources, [])
+      |> assign(:sorts, sorts)
       |> assign(:primary_data_type, "Collection")
       |> assign(:foo, "bar")
     {:ok, socket}
@@ -123,6 +132,26 @@ defmodule AshDashboard.RequestsLive do
                 </div>
               </div>
             </div>
+
+
+            <div class="row pt-3 mb-3 border-top">
+              <div class="col-1">
+                <p class="font-weight-bold">Sort</p>
+              </div>
+              <div class="col-6">
+                <%= for s <- @sorts do %>
+                  <input placeholder="option" value="<%= s.option %>">
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-sm btn-outline-secondary <%= if s.direction == "asc" do "active" end %>" phx-click="toggle_sort_direction" phx-value-option="<%= s.option %>">Asc</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary <%= if s.direction == "dsc" do "active" end %>" phx-click="toggle_sort_direction" phx-value-option="<%= s.option %>">Dsc</button>
+                  </div>      
+                  <button class="btn btn-sm btn-danger" phx-click="remove_sort" phx-value-option="<%= s.option %>">Remove</button>
+                <% end %>
+                <br>
+                <button class="btn btn-sm btn-primary" phx-click="add_sort">Add</button>
+              </div>
+            </div>
+
             <div class="row pt-3 mb-3 border-top">
               <div class="col-1">
                 <p class="font-weight-bold">Ash</p>
@@ -225,6 +254,32 @@ defmodule AshDashboard.RequestsLive do
   def handle_event("included_resource_unselected", %{"resource" => name}, socket) do
     IO.inspect("included_resource_unselected: #{name}")
     {:noreply, assign(socket, included_resources: socket.assigns.included_resources -- [name])}
+  end
+
+  def handle_event("add_sort", _, socket) do
+    # IO.inspect("included_resource_selected: #{name}")
+    new_sort = %{option: nil, direction: nil}
+    {:noreply, assign(socket, sorts: socket.assigns.sorts ++ [new_sort])}
+  end
+
+  def handle_event("remove_sort", %{"option" => option}, socket) do
+    new_sorts = Enum.reject(socket.assigns.sorts, fn x -> x.option == option end)
+    {:noreply, assign(socket, sorts: new_sorts)}
+  end
+
+  def handle_event("toggle_sort_direction", %{"option" => option}, socket) do
+    # new_sorts = Enum.map(sorts)
+    sort = Enum.find(socket.assigns.sorts, fn x -> x.option == option end)
+    new_direction = if (sort.direction == "asc") do
+      "dsc"
+    else
+      "asc"
+    end
+
+    # require IEx; IEx.pry;
+    # sort[:direction] = new_direction
+
+    {:noreply, assign(socket, sorts: socket.sorts)}
   end
 
   def base_url do
