@@ -25,6 +25,11 @@ defmodule AshDashboard.ResourcesImportLive do
           <div class="card-header">
             <%= s[:name] %> - <%= s[:type] %>: <%= length(s[:columns]) %> columns
           </div>
+          <div class="card-body">
+            <%= for c <- s[:columns] do %>
+              <span class="badge badge-light"><%= c["name"] %></span>
+            <% end %>
+          </div>
         </div>
       <% end %>
   
