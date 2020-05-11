@@ -61,7 +61,7 @@ defmodule AshDashboard.RequestsLive do
               <div class="col-1">
                 <p class="font-weight-bold">URL</p>
               </div>
-              <div class="col-7">
+              <div class="col-8">
                 <span class="api-name">
                   <%= base_url %>
                 </span>
@@ -93,11 +93,11 @@ defmodule AshDashboard.RequestsLive do
                   </div>
                 <% end %>
               </div>
-              <div class="col-4">
+              <div class="col-3">
                 <div class="btn-group" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-outline-secondary <%= if @primary_data_type == "Item" do "active" end %>" phx-click="select_primary_data_type" phx-value-type="Item">Item</button>
-                  <button type="button" class="btn btn-outline-secondary <%= if @primary_data_type == "Collection" do "active" end %>" phx-click="select_primary_data_type" phx-value-type="Collection">Collection</button>
-                  <button type="button" class="btn btn-outline-secondary <%= if @primary_data_type == "Relationship" do "active" end %>" phx-click="select_primary_data_type" phx-value-type="Relationship">Relationship</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary <%= if @primary_data_type == "Item" do "active" end %>" phx-click="select_primary_data_type" phx-value-type="Item">Item</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary <%= if @primary_data_type == "Collection" do "active" end %>" phx-click="select_primary_data_type" phx-value-type="Collection">Collection</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary <%= if @primary_data_type == "Relationship" do "active" end %>" phx-click="select_primary_data_type" phx-value-type="Relationship">Relationship</button>
                 </div>      
               </div>
             </div>
@@ -148,7 +148,7 @@ defmodule AshDashboard.RequestsLive do
                   <button class="btn btn-sm btn-danger" phx-click="remove_sort" phx-value-option="<%= s.option %>">Remove</button>
                 <% end %>
                 <br>
-                <button class="btn btn-sm btn-primary" phx-click="add_sort">Add</button>
+                <button class="btn btn-sm btn-secondary" phx-click="add_sort">Add</button>
               </div>
             </div>
 
